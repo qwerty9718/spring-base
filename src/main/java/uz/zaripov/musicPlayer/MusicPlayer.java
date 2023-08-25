@@ -18,10 +18,19 @@ public class MusicPlayer {
         System.out.println(music.getSong());
     }
 
+    public void doMyInit(){
+        System.out.println("Идет инициализация");
+    }
+
+    public void doMyDestroy(){
+        System.out.println("Идет деконструкция");
+    }
+
     // IoC через Setter
     public void setMusic(Music music) {
         this.music = music;
     }
+
 
 
 

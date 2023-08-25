@@ -30,9 +30,13 @@
 
 
         <!--  IoC через Setter  с помошью property  -->
-    <bean id="musicPlayer" class="uz.zaripov.musicPlayer.MusicPlayer">
-        <property name="music" ref="rockBean"/>
+    <bean id="musicPlayer"
+          class="uz.zaripov.musicPlayer.MusicPlayer"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy">
 
+
+        <property name="music" ref="rockBean"/>
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
