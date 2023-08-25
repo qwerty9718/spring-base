@@ -9,18 +9,9 @@ public class TestSpring {
                 "applicationContext.xml"
         );
 
-        // 1 вариант  Внедрение зависимостей через консруктор вручную
-        // В Context создается дочерний класс RockBean
-        // В конструктов MusicPlayer втраиваем зависимость RockBean из Context
-//        Music music = context.getBean("rockBean",Music.class);
-//        MusicPlayer player = new MusicPlayer(music);
-//        player.playMusic();
-
-
-
-        // 2 Вариант  Внедрение зависимостей через консруктор в Контексте
         MusicPlayer player = context.getBean("musicPlayer",MusicPlayer.class);
-        player.playMusic();
+        Computer computer = context.getBean("computer", Computer.class);
+        computer.startMusicPlayer();
 
         context.close();
 

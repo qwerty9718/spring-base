@@ -1,41 +1,39 @@
 package uz.zaripov.musicPlayer;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MusicPlayer {
 
     private Music music;
+    private Music music2;
 
     private String name;
     private int volume;
 
+    public String playMusic(){
+        String res = "Плеер запустил " + music.getSong() + "\n" + music2.getSong();
+        return res;
+    }
+
+
     // IoC через Конструктор
-    public MusicPlayer(Music music){
+    @Autowired
+    public MusicPlayer(@Qualifier("rockMusic") Music music, @Qualifier("classicalMusic")Music music2){
         this.music = music;
+        this.music2 = music2;
     }
     public MusicPlayer() {}
 
 
-    public void playMusic(){
-        System.out.println(music.getSong());
-    }
 
-    public void doMyInit(){
-        System.out.println("Идет инициализация");
-    }
-
-    public void doMyDestroy(){
-        System.out.println("Идет деконструкция");
-    }
 
     // IoC через Setter
     public void setMusic(Music music) {
         this.music = music;
     }
-
-
-
-
-
-
 
 
 

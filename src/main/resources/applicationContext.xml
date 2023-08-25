@@ -9,36 +9,7 @@
 
 
 
-    <!--  Подключение файла MusicPlayer.Properties  -->
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+    <context:component-scan base-package="uz.zaripov.musicPlayer"/>
 
-
-    <bean id="classicalBean"
-          class="uz.zaripov.musicPlayer.ClassicalMusic">
-
-    </bean>
-
-    <bean id="rockBean"
-          class="uz.zaripov.musicPlayer.RockMusic">
-
-    </bean>
-
-        <!--  IoC через конструктор с ссылкой на зависимость  -->
-<!--    <bean id="musicPlayer" class="uz.zaripov.musicPlayer.MusicPlayer">-->
-<!--        <constructor-arg ref="classicalBean"/>-->
-<!--    </bean>-->
-
-
-        <!--  IoC через Setter  с помошью property  -->
-    <bean id="musicPlayer"
-          class="uz.zaripov.musicPlayer.MusicPlayer"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy">
-
-
-        <property name="music" ref="rockBean"/>
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
 
 </beans>
