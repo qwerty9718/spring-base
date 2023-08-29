@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .news{
+            border: 1px green solid;
+            border-radius: 15px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 10px 10px;
+            width: 50%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="news">
+    <h2 th:text="${news.getName()}"></h2>
+    <p th:text="${news.getText()}"></p>
+</div>
+</body>
+</html>
