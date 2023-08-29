@@ -3,6 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style>
+        .person{
+            border: 1px green solid;
+            border-radius: 15px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 10px 10px;
+            width: 50%;
+            margin: auto;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -12,14 +25,15 @@
 
 <div th:each="person : ${people}">
 
-    <div>
-        <a th:href="@{/people/{id} (id=${person.getId()})}" th:text="${person.getName()}"></a> <br>
+    <div class="person">
+        <a th:href="@{/people/{id} (id=${person.getId()})}" th:text="${person.getName()}"></a>
+        <h3 th:text="${person.getEmail()}"></h3>
+        <h3 th:text="${person.getAge()}"></h3>
+        <hr>
         <a th:href="@{/people/{id}/edit (id=${person.getId()})}">update</a>
         <form th:method="DELETE" th:action="@{/people/{id} (id=${person.getId()})}">
             <input type="submit" value="delete">
         </form>
-
-        <hr>
     </div>
 
 </div>
